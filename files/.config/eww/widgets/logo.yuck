@@ -1,0 +1,8 @@
+(defwidget logo []
+  (button :class "logo"
+    ; TODO: Use custom launcher
+    ; :onclick "scripts/toggle_launcher.sh &"
+    :onclick "rofi -show drun &"
+    (label :text "󰣇")
+  )
+)

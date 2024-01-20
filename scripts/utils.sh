@@ -34,7 +34,17 @@ service_ctl() {
 pkg_installed() {
     local PkgIn=$1
 
-    if pacman -Qi $PkgIn &>/dev/null; then
+    if pacman -Qi "$PkgIn" &>/dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+flat_pkg_installed() {
+    local AppIn=$1
+
+    if flatpak list | grep -q "$AppIn"; then
         return 0
     else
         return 1

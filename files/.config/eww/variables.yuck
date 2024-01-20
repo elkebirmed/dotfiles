@@ -1,0 +1,21 @@
+; VARS
+
+
+
+; POLLS
+
+
+
+; LISTENS
+
+(deflisten current_workspace :initial "1"
+"scripts/get_active_workspace.sh")
+
+(deflisten workspaces :initial "[{\"id\": 1}]"
+"scripts/workspaces.sh")
+
+(deflisten network :initial '{"essid": "lo", "signal": ""}'
+"scripts/network.sh")
+
+(deflisten volume :initial "0"
+"scripts/volume.sh")

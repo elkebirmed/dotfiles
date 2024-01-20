@@ -1,0 +1,9 @@
+(include "variables.yuck")
+(include "windows.yuck")
+
+(include "windows/bar.yuck")
+
+(include "widgets/logo.yuck")
+(include "widgets/workspaces.yuck")
+(include "widgets/indicator.yuck")
+(include "widgets/clock.yuck")

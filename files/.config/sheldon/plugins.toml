@@ -1,0 +1,24 @@
+shell = "zsh"
+
+[plugins]
+
+[plugins.oh-my-zsh]
+github = "ohmyzsh/ohmyzsh"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.autojump]
+github = "wting/autojump"
+dir = "bin"
+apply = ["PATH", "source"]
+
+[plugins."z.lua"]
+github = "skywind3000/z.lua"
+
+[plugins.enhancd]
+github = "b4b4r07/enhancd"

@@ -1,0 +1,14 @@
+.logo {
+    background-color: $surface0;
+    border: 1px solid $yellow;
+    color: $text;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    padding: .1rem .65rem .1rem .4rem;
+    transition: 0.3s;
+    margin: 0.1rem;
+}
+
+.logo:hover {
+    background-color: mix($surface0, $yellow, 80%);
+}
