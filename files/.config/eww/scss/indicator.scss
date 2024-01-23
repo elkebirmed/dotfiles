@@ -1,16 +1,22 @@
 .indicator {
-    background-color: $overlay2;
-    border-radius: 2rem;
-    margin: 0.1rem;
+    margin-right: 0.6rem;
     transition: 0.3s;
-    color: $base;
+    color: $text;
+
+    &:hover {
+        background-color: mix($teal, $base, 30%);
+    }
 }
 
 .indicator-icon {
-    margin: 0 0.45rem;
+    margin-left: .7rem;
     font-size: 1.2rem;
-}
 
-.indicator:hover {
-    background-color: mix($surface0, $teal, 50%);
+    &.extra-margin {
+        margin-left: 0.95rem;
+    }
+
+    &.charging {
+        color: $green;
+    }
 }

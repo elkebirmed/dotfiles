@@ -2,40 +2,31 @@
   ;   (button :onclick "scripts/toggle_control_center.sh" :class "indicator"
     (button :class "indicator"
       (box :orientation "h" :space-evenly false
-        ; (recorder_icon)
         (network_icon)
-        ; (do-not-disturb_icon)
         (volume_icon)
+        (brightness_icon)
         (battery_icon)
         (clock)
       )
     )
   )
   
-  (defwidget state_icon [condition text ?tooltip]
-    (label :class "indicator-icon" :visible {condition} :valign "center" :text {text} :tooltip {tooltip})
-  )
-  
-  ; (defwidget do-not-disturb_icon []
-    ;   (state_icon :condition {do-not-disturb == false ? false : true}
-      ;     :text "󰍷"
-    ;   )
-  ; )
-  
-  (defwidget network_icon []
-    (state_icon :condition true
-      :text {network.essid == "lo" ? "󰤭" : network.signal == "" ? "󰤩" : network.signal < 25 ? "󰤟" : network.signal < 50 ? "󰤢" : network.signal < 75 ? "󰤥" : "󰤨"}
+  (defwidget brightness_icon []
+    (label :class "indicator-icon extra-margin" :valign "center"
+      :text {brightness < 10 ? "" : brightness < 25 ? "" : brightness < 50 ? "" : brightness < 75 ? "" : ""}
+      :tooltip "Brightness: ${brightness}%"
     )
   )
   
-  ;   (defwidget recorder_icon []
-    ;     (state_icon :condition {recording == false ? false : true}
-      ;       :text "󰻃"
-    ;     )
-  ;   )
+  (defwidget network_icon []
+    (label :class "indicator-icon" :valign "center"
+      :text {network.essid == "lo" ? "󰤭" : network.signal == "" ? "󰤩" : network.signal < 25 ? "󰤟" : network.signal < 50 ? "󰤢" : network.signal < 75 ? "󰤥" : "󰤨"}
+      :tooltip {network.essid == "lo" ? "Local Area Network" : "${network.essid} - ${network.signal}%"}
+    )
+  )
   
   (defwidget volume_icon []
-    (state_icon :condition true
+    (label :class "indicator-icon extra-margin" :valign "center"
       :text {volume == "muted" ? "󰸈" : volume < 33 ? "" : volume < 67 ? "" : ""}
       :tooltip {volume == "muted" ? "0%" : "${volume}%"}
     )
@@ -43,8 +34,10 @@
   
   (defwidget battery_icon []
     (box :visible {EWW_BATTERY == "" ? false : true}
-      (state_icon :condition true
-        :text {EWW_BATTERY.BAT0.capacity == 100 ? "󰁹" : EWW_BATTERY.BAT0.capacity > 90 ? "󰂂" : EWW_BATTERY.BAT0.capacity > 80 ? "󰂁" : EWW_BATTERY.BAT0.capacity > 70 ? "󰂀" : EWW_BATTERY.BAT0.capacity > 60 ? "󰁿" : EWW_BATTERY.BAT0.capacity > 50 ? "󰁾" : EWW_BATTERY.BAT0.capacity > 40 ? "󰁽" : EWW_BATTERY.BAT0.capacity > 30 ? "󰁼" : EWW_BATTERY.BAT0.capacity > 20 ? "󰁻" : EWW_BATTERY.BAT0.capacity > 10 ? "󰁺" : "󰂎"}
+      (label :valign "center"
+        :text {EWW_BATTERY.BAT0.status == "Charging" ? "󰂄${EWW_BATTERY.BAT0.capacity}" : "󰁹${EWW_BATTERY.BAT0.capacity}"}
+        :class {EWW_BATTERY.BAT0.status == "Charging" ? "indicator-icon charging" : "indicator-icon discharging"}
+        :tooltip "Battery: ${EWW_BATTERY.BAT0.capacity}%"
       )
     )
   )

@@ -1,5 +1,14 @@
 .bar {
     @include window;
-    padding: 0.1rem 0.2rem;
-    border-radius: 2rem;
+    border-radius: 10px;
+    border: 1px solid $yellow;
+    min-height: 2rem;
+
+    .start {
+        padding: 0.3px 0;
+    }
+}
+
+tooltip {
+    @include tooltip;
 }

@@ -1,0 +1,9 @@
+.kb-layout {
+    margin-right:0.6rem;
+    padding: 0 0.3rem;
+    min-width: 1.7rem;
+
+    &:hover {
+        background-color: mix($teal, $base, 30%);
+    }
+}

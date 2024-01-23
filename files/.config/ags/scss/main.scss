@@ -1,0 +1,23 @@
+* {
+    all: unset;
+    font-family: Rubik, 'JetBrainsMono Nerd Font', 'Font Awesome 6 Free Solid', 'Font Awesome 6 Brands';
+}
+
+@import "variables.scss";
+@import "colors.scss";
+@import "lib.scss";
+
+// Bar
+@import "bar/bar.scss";
+@import "bar/logo.scss";
+@import "bar/workspaces.scss";
+@import "bar/indicator.scss";
+@import "bar/clock.scss";
+@import "bar/power.scss";
+@import "bar/layout.scss";
+@import "bar/title.scss";
+@import "bar/tray.scss";
+@import "bar/notification.scss";
+
+// Notifications
+@import "notofications/notification.scss";

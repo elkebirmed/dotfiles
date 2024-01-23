@@ -1,21 +1,27 @@
 ; VARS
 
 
-
 ; POLLS
-
+(defpoll brightness :interval "1s" :initial "-1"
+"scripts/brightness.sh")
 
 
 ; LISTENS
 
 (deflisten current_workspace :initial "1"
-"scripts/get_active_workspace.sh")
+"scripts/workspaces.sh active")
 
 (deflisten workspaces :initial "[{\"id\": 1}]"
-"scripts/workspaces.sh")
+"scripts/workspaces.sh workspaces")
 
 (deflisten network :initial '{"essid": "lo", "signal": ""}'
 "scripts/network.sh")
 
+(deflisten kb_layout :initial "FR"
+"scripts/layout.sh layout")
+
 (deflisten volume :initial "0"
-"scripts/volume.sh")
+"scripts/volume.sh volume")
+
+(deflisten title :initial "[]"
+"scripts/title.sh title")

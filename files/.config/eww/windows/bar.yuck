@@ -4,13 +4,15 @@
     (box :orientation "h" :space-evenly false :halign "start"
       (logo)
       (workspaces)
+      (title)
     )
     
     (box :orientation "h" :space-evenly false :halign "end"
       ;   (tray_button)
-      ;   (language)
+      (kb-layout)
       ;   (picker)
       (indicator)
+      (power)
     )
     
   )

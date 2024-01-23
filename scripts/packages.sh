@@ -20,6 +20,7 @@ packages=(
     fzf
     inxi
     socat
+    inotify-tools
 
     # Package managers
     flatpak
@@ -57,7 +58,7 @@ packages=(
     bottles
 
     # Social Apps
-    discord
+    webcord
 
     # Graphics Apps
     inkscape
@@ -90,6 +91,7 @@ packages=(
     bluez
     bluez-utils
     blueman
+    gnome-bluetooth-3.0
 
     # QT
     qt5ct
@@ -109,6 +111,14 @@ packages=(
     wl-clipboard
     swww
     slurp
+    aylurs-gtk-shell-git
+
+    # Programming
+    nodejs
+    npm
+    yarn
+    typescript
+    sassc
 
     # Fonts
     ttf-jetbrains-mono-nerd
@@ -135,7 +145,6 @@ packages=(
     cliphist
     gamemode
     github-cli
-    dunst
     kvantum
 )
 

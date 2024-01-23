@@ -1,0 +1,7 @@
+(defwidget title []
+  (box :class "title"
+    :visible {arraylength(title) > 0}
+    ; (image :path scripts/icon.py -i {title[0]} {title[1]})
+    (label :text {title[1]} :limit-width 45)
+  )
+)

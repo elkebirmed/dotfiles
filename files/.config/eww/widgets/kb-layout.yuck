@@ -1,0 +1,5 @@
+(defwidget kb-layout []
+  (button :class "kb-layout" ; :onclick "scripts/switch_kb_layout.sh &"
+    (label :text kb_layout)
+  )
+)

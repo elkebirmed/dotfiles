@@ -1,0 +1,30 @@
+@mixin window {
+    background-color: change-color($color: $surface0, $alpha: 0.8);
+    border-radius: 10px;
+    color: $text;
+    border: 1px solid $yellow;
+}
+
+@mixin tooltip {
+    background-color: $surface0;
+    border-radius: 0.4rem;
+    color: $text;
+    border: 1px solid $surface1;
+}
+
+@mixin logo {
+    color: $text;
+    font-size: $bar-btn-font-size;
+    min-width: 2rem;
+    transition: $bar-btn-transition-speed;
+
+    &:hover {
+        color: $text;
+    }
+}
+
+@mixin button-hover {
+    &:hover {
+        background-color: mix($teal, $base, 35%)
+    }
+}

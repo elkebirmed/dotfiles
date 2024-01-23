@@ -1,5 +1,7 @@
 (defwidget clock []
-  (label :class "clock" :text {formattime(EWW_TIME, "%H:%M")})
+  (label :class "clock"
+    :text {formattime(EWW_TIME, "%H:%M")}
+    :tooltip {formattime(EWW_TIME, "%d-%m-%Y")})
 )
 
 (defwidget big_clock []

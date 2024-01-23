@@ -131,6 +131,10 @@ if [[ "$1" != "-r" ]]; then
         fi
     done
 
+    if [ -f /etc/bluetooth/main.conf ] && ! grep -q '#Experimental = true' /etc/bluetooth/main.conf; then
+        sudo sed -i 's/^#\(.*Experimental = true\)/\1/' /etc/bluetooth/main.conf
+    fi
+
     services=(
         sddm
         NetworkManager
@@ -185,6 +189,7 @@ dot_config=(
     wallpapers
     sheldon
     eww
+    ags
     fontconfig
 )
 

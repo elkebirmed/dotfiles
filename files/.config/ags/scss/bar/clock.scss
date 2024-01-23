@@ -1,0 +1,8 @@
+.clock {
+    padding: $bar-btn-padding;
+    font-size: $bar-btn-font-size;
+    transition: $bar-btn-transition-speed;
+    min-height: $bar-btn-height;
+
+    @include button-hover;
+}

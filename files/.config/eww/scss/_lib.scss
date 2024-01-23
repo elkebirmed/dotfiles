@@ -4,3 +4,21 @@
     color: $text;
     border: 1px solid $yellow;
 }
+
+@mixin tooltip {
+    background-color: $surface0;
+    border-radius: 0.4rem;
+    color: $text;
+    border: 1px solid $surface1;
+}
+
+@mixin logo {
+    color: $text;
+    font-size: 1.2rem;
+    min-width: 2rem;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: mix($teal, $base, 30%);
+    }
+}

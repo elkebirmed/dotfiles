@@ -1,0 +1,31 @@
+.indicator {
+    transition: $bar-btn-transition-speed;
+    color: $text;
+    padding: $bar-btn-padding;
+    min-height: $bar-btn-height;
+
+    @include button-hover;
+}
+
+.indicator-icon {
+    font-size: $bar-btn-font-size;
+    min-width: 1.5rem;
+
+    &.bluetooth {
+        margin-right: -0.4rem;
+    }
+
+    &.keyboard {
+        margin-right: -0.2rem;
+    }
+
+    &.battery {
+        &-low {
+          color: $red;  
+        }
+
+        &-full {
+          color: $green;
+        }
+    }
+}

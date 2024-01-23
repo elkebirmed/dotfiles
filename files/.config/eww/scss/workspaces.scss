@@ -1,28 +1,16 @@
 .workspaces {
-    border-radius: 2rem;
-    padding: 0.2rem 0.1rem;
-    margin: 0.25rem 0 0.25rem 0.6rem;
-    background-color: $overlay2;
+    margin-left: 0.6rem;
 }
 
 .workspace {
-    border-radius: 2rem;
-    background-color: $surface1;
-    margin: 0 0.25rem;
-    border: 1px solid transparent;
-    padding: 0 0.65rem;
+    padding: 0 1rem 0 0.75rem;
     transition: 0.3s;
 
     &.current {
-        background-color: $teal;
-        border-color: $crust;
+        color: $teal;
     }
-}
 
-.workspace:hover {
-    background-color: mix($teal, $yellow, 50%);
-
-    &.current {
-        background-color: mix($yellow, $teal, 50%);
+    &:hover {
+        background-color: mix($teal, $base, 30%);
     }
 }
