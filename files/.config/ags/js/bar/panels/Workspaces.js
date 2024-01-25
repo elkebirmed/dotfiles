@@ -5,6 +5,7 @@ const dispatch = (ws) => Hyprland.sendMessage(`dispatch workspace ${ws}`);
 
 export default () =>
   Widget.EventBox({
+    visible: Hyprland.bind("workspaces").transform((w) => w.length > 1),
     on_scroll_up: () =>
       Utils.exec("bash -c '~/.config/ags/scripts/workspaces.sh change up'"),
     on_scroll_down: () =>

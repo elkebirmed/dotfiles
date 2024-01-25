@@ -3,9 +3,13 @@
         box-shadow: inset 0 0 .5em 0 $red;
     }
 
-    &:hover button.close-button{
+    button.close-button {
         border-radius: 2rem;
         margin: 0.1rem 0.1rem 0;
+        background-color: transparent;
+    }
+
+    &:hover button.close-button {
         background-color: transparentize($red, .5);
     }
 
@@ -28,12 +32,7 @@
         }
 
         .icon {
-            border-radius: 10px;
             margin: 0.25rem 1rem 0.25rem 0.25rem;
-
-            // &.img {
-            //     border: 1px solid $surface1;
-            // }
         }
     }
 
@@ -64,7 +63,7 @@
     }
 }
 
-window.notifications {
+window.notifications, .notifications-body {
     all: unset;
 
     .notification {
@@ -73,9 +72,10 @@ window.notifications {
         > box {
             opacity: 0.95;
             margin: 0.1rem 0.1rem 0;
-            border: 1px solid $surface1;
+            border: 1px solid $surface2;
             background-color: $surface0;
             border-radius: 10px;
+            padding: 0.5rem;
         }
 
         .description {

@@ -21,6 +21,18 @@ packages=(
     inxi
     socat
     inotify-tools
+    dust
+    hyperfine
+    bottom
+    zoxide
+    nnn
+    bandwhich
+    procs
+    fselect
+    httm
+    kmon
+    fd
+    erdtree
 
     # Package managers
     flatpak

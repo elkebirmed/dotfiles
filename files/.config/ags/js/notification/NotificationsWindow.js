@@ -1,58 +1,61 @@
-import { Widget, Utils, Notifications } from "../../js/lib/imports.js";
-import Notification from "./Notification.js";
+import { Widget, Notifications } from "../lib/imports.js";
+import PopupWindow from "../misc/PopupWindow.js";
+import Notification from "./panels/Notification.js";
 
-const Popups = (parent) => {
-  const map = new Map();
+const Body = () =>
+  Widget.Scrollable({
+    hscroll: "never",
+    vscroll: "always",
+    class_name: "notifications-body",
+    child: Widget.Box({
+      class_name: "notifications-list",
+      vertical: true,
+      spacing: 14,
+      // @ts-ignore
+      children: Notifications.bind("notifications").transform((n) =>
+        n.map((n) => Notification(n, false))
+      ),
+    }),
+  });
 
-  const onDismissed = (_, id, force = false) => {
-    if (!id || !map.has(id)) return;
-
-    if (map.get(id).isHovered() && !force) return;
-
-    if (map.size - 1 === 0) parent.reveal_child = false;
-
-    Utils.timeout(200, () => {
-      map.get(id)?.destroy();
-      map.delete(id);
-    });
-  };
-
-  const onNotified = (box, id) => {
-    if (!id || Notifications.dnd) return;
-
-    const n = Notifications.getNotification(id);
-    if (!n) return;
-
-    map.delete(id);
-    map.set(id, Notification(n));
-    box.children = Array.from(map.values()).reverse();
-    Utils.timeout(10, () => {
-      parent.reveal_child = true;
-    });
-  };
-
-  return Widget.Box({ vertical: true })
-    .hook(Notifications, onNotified, "notified")
-    .hook(Notifications, onDismissed, "dismissed")
-    .hook(Notifications, (box, id) => onDismissed(box, id, true), "closed");
-};
-
-const PopupList = () =>
+const Header = () =>
   Widget.Box({
-    class_name: "popup-list",
-    css: "padding: 1px",
+    class_name: "notifications-header",
     children: [
-      Widget.Revealer({
-        transition: "slide_down",
-        setup: (self) => (self.child = Popups(self)),
+      Widget.Label({
+        class_name: "notifications-title",
+        label: "Notifications",
+        xalign: 0,
+        hexpand: true,
+      }),
+      Widget.Button({
+        class_name: "clear-button",
+        label: "Clear",
+        on_clicked: () => Notifications.clear(),
+      }),
+      Widget.Button({
+        class_name: "dnd-button",
+        // @ts-ignore
+        label: Notifications.bind("dnd").transform((dnd) => (dnd ? "" : "")),
+        on_clicked: () => (Notifications.dnd = !Notifications.dnd),
       }),
     ],
   });
 
-export default () =>
-  Widget.Window({
-    name: "notifications",
+const NotificationsWindow = () => {
+  return Widget.Box({
     class_name: "notifications",
+    vertical: true,
+    halign: 0,
+    hpack: "start",
+    children: [Header(), Body()],
+  });
+};
+
+export default () =>
+  PopupWindow({
+    name: "notifications-window",
+    transition: "slide_down",
+    child: NotificationsWindow(),
     anchor: ["top", "right"],
-    child: PopupList(),
   });

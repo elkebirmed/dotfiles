@@ -221,5 +221,7 @@ if [ ! -f ~/.config/.not_first_time ]; then
     flatpak --user override --env=GTK_THEME=${GtkTheme}
     flatpak --user override --env=ICON_THEME=${GtkIcon}
 
+    sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep $(command -v bandwhich)
+
     touch ~/.config/.not_first_time
 fi
