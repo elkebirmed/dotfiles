@@ -2,12 +2,8 @@
     padding: 0 0.5rem 0 0.3rem;
     transition: $bar-btn-transition-speed;
 
-    &.current {
-        color: $teal;
-    }
-
     &:hover {
-        color: $yellow;
-        text-shadow: 0 0 10px $yellow;
+        color: $teal;
+        text-shadow: 0 0 4px $text;
     }
 }

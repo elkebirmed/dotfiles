@@ -124,6 +124,7 @@ packages=(
     swww
     slurp
     aylurs-gtk-shell-git
+    hyprpicker
 
     # Programming
     nodejs

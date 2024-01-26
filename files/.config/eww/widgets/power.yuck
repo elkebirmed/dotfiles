@@ -1,6 +1,0 @@
-(defwidget power []
-  (button :class "power"
-    :onclick ""
-    (label :text "")
-  )
-)

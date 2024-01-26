@@ -5,10 +5,10 @@
     min-width: 35rem;
 
     .notifications-header {
-        background-color: mix($teal, $base, 20%);
+        background-color: change-color($base, $alpha: 0.35);
         border-top-right-radius: $border-radius;
         border-top-left-radius: $border-radius;
-        border-bottom: 1px solid $yellow;
+        border-bottom: 1px solid $border-color;
         padding: 0.5rem 1rem;
 
         .notifications-title {
@@ -18,13 +18,16 @@
         }
 
         .clear-button, .dnd-button {
-            @include button-hover;
             padding: $bar-btn-padding;
             border-radius: 5px;
+
+            &:hover {
+                background-color: transparentize($teal, 0.8);
+            }
         }
 
         .dnd-button {
-            padding-right: 0.7rem;
+            padding-right: 0.85rem;
         }
     }
 
@@ -34,7 +37,7 @@
 
         .notification {
             > box {
-                background-color: mix($surface0, $base, 50%);
+                background-color: change-color($base, $alpha: 0.60);
             }
         }
     }

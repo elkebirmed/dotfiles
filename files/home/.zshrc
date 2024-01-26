@@ -14,7 +14,7 @@ alias l='eza -l --icons'
 alias ll='eza -al --icons'
 alias lt='erd -I -L 1 -H -y inverted'
 alias ltt='erd -I -L 2 -H -y inverted'
-alias lttt='erd -I -H -y inverted'
+alias ltr='erd -I -H -y inverted'
 alias cat='bat'
 
 eval "$(sheldon source)"

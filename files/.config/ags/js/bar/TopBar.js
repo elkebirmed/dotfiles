@@ -29,7 +29,6 @@ const End = () =>
 
 export default () =>
   Widget.Window({
-    margins: [5, 5, 0, 5],
     name: "bar",
     class_name: "bar",
     exclusivity: "exclusive",

@@ -158,17 +158,6 @@ if [[ "$1" != "-r" ]]; then
     if [ ! -d ~/.local/bin ]; then
         mkdir -p ~/.local/bin
     fi
-
-    if ! command -v eww &>/dev/null; then
-        echo_info "[EWW]: installing eww..."
-        git clone --depth=1 https://github.com/elkowar/eww
-        cd eww
-        ~/.cargo/bin/cargo build --release --no-default-features --features=wayland
-        chmod +x ./target/release/eww
-        cp target/release/eww ~/.local/bin
-        cd ..
-        rm -rf eww
-    fi
 fi
 
 if [ ! -d ~/Projects ]; then
@@ -188,7 +177,6 @@ dot_config=(
     gtk-3.0
     wallpapers
     sheldon
-    eww
     ags
     fontconfig
 )
