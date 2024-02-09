@@ -33,6 +33,14 @@ packages=(
     kmon
     fd
     erdtree
+    autoenv-git
+    direnv
+
+    # Printer
+    cups
+    cnijfilter2
+    cups-bjnp
+    system-config-printer
 
     # Package managers
     flatpak
@@ -125,13 +133,22 @@ packages=(
     slurp
     aylurs-gtk-shell-git
     hyprpicker
+    swaylock-effects
 
     # Programming
+    docker
+    docker-compose
     nodejs
     npm
     yarn
     typescript
     sassc
+    sqlite
+    php
+    php-sqlite
+    php-pgsql
+    php-gd
+    composer
 
     # Fonts
     ttf-jetbrains-mono-nerd
@@ -168,4 +185,5 @@ flats=(
 
 crates=(
     sheldon
+    cargo-watch
 )

@@ -139,6 +139,8 @@ if [[ "$1" != "-r" ]]; then
         sddm
         NetworkManager
         bluetooth
+        cups
+        docker
     )
 
     for service in ${services[@]}; do
@@ -194,6 +196,39 @@ done
 for file in $(ls -A ~/dotfiles/files/home); do
     [ -f ~/${file} ] && rm ~/${file}
     ln -s ~/dotfiles/files/home/${file} ~/
+done
+
+# enable php extensions in /etc/php/php.ini
+
+php_extensions=(
+    bcmath
+    curl
+    exif
+    iconv
+    gd
+    intl
+    mysqli
+    pgsql
+    pdo_mysql
+    pdo_pgsql
+    pdo_sqlite
+    sqlite3
+    zip
+)
+
+for extension in ${php_extensions[@]}; do
+    if ! grep -q "^extension=${extension}" /etc/php/php.ini; then
+        echo "extension=${extension}" | sudo tee -a /etc/php/php.ini
+    fi
+done
+
+groups=(
+    docker
+)
+
+for group in ${groups[@]}; do
+    sudo groupadd ${group}
+    sudo usermod -aG ${group} ${USER}
 done
 
 if [ ! -f ~/.config/.not_first_time ]; then
