@@ -69,6 +69,7 @@ packages=(
     clapper
     obs-studio
     kdenlive
+    xwaylandvideobridge
 
     # Gaming Apps
     steam
@@ -186,4 +187,5 @@ flats=(
 crates=(
     sheldon
     cargo-watch
+    trunk
 )
