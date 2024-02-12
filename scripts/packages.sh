@@ -188,4 +188,5 @@ crates=(
     sheldon
     cargo-watch
     trunk
+    cargo-generate
 )
